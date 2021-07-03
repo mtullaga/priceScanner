@@ -4,25 +4,61 @@
     <head>
         <meta charset="utf-8">
        
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com  -->
+        <!-- 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;"> -->
         <meta name="format-detection" content="telephone=no">
         <meta name="msapplication-tap-highlight" content="no">
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
         <title>Hello World</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        
+        <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+
+        <script>
+            // Initialize Cloud Firestore through Firebase
+            var firebaseConfig = {
+                apiKey: "AIzaSyDk-4FzdbcDCC4avNxSQ89Dh5IsynHIZKM",
+                authDomain: "price-scanner-fe7ef.firebaseapp.com",
+                projectId: "price-scanner-fe7ef",
+                storageBucket: "price-scanner-fe7ef.appspot.com",
+                messagingSenderId: "240023397012",
+                appId: "1:240023397012:web:c30b8866e3599d4b624a81",
+                measurementId: "G-M7QMDNR0XH"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            var db = firebase.firestore();
+        </script>
+
+        
     </head>
     <body>
         <div class="app">
             <div id="deviceready" class="blink"> 
-                <center>Price Scanner</center>
+                <center><h3>Price Scanner</h3></center>
                 <form style="width: 100%; text-align: center;">
-                    <input type="button" value="Scan Barcode" onclick="openScanner()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 50px;"/>
-                    <input type="button" value="Scan Barcode" onclick="addItem()" style="font-size: 40px; width: 300px; height: 50px; margin-top: 20px;"/>
+                    <input type="button" value="Scan Barcode" id="openScanner" style="font-size: 30px; width: 300px; height: 40px; margin-top: 50px;"/>
+                    <input type="button" value="Add Item" id="addItem" style="font-size: 30px; width: 300px; height: 40px; margin-top: 20px;"/>
+                    <input type="button" value="Edit Item Price" id="editItem" style="font-size: 30px; width: 300px; height: 40px; margin-top: 20px;"/>
                 </form>
+                <h3 id="item-code"></h3>
+                <h2 id="item-name"></h2>
+                <h2 id="item-price"></h2>
             </div>
         </div>
+        
+
         <script src="cordova.js"></script>
         <script src="js/index.js"></script>
+
+        
+
+        
     </body>
 </html>

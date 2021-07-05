@@ -31,8 +31,7 @@
       "cordova-plugin-network-information": {}
     },
     "platforms": [
-      "browser",
-      "android"
+      "browser"
     ]
   },
   "dependencies": {

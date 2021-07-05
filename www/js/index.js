@@ -207,14 +207,14 @@ function onDeviceReady() {
                     if(isNaN(results.input1)){
                         alert('Please input a number.');
                     }else{
-                        db.collection("items").doc(id).set({
-                            price: results.input1
+                        db.collection("items").doc(id).update({
+                            itemPrice: results.input1
                         })
                         .then(() => {
-                            console.log("Document successfully written!");
+                            alert("Item price successfully updated.");
                         })
                         .catch((error) => {
-                            console.error("Error writing document: ", error);
+                            alert("Error updating price: ", error);
                         });
                     }
                 }

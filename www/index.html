@@ -11,6 +11,10 @@
         <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
         <meta name="color-scheme" content="light dark">
         <link rel="stylesheet" href="css/index.css">
+
+        <link rel="stylesheet" href=" https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+       
         <title>Hello World</title>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -33,7 +37,7 @@
             firebase.initializeApp(firebaseConfig);
             firebase.analytics();
 
-            var db = firebase.firestore();
+            
         </script>
 
         
@@ -41,15 +45,18 @@
     <body>
         <div class="app">
             <div id="deviceready" class="blink"> 
+                <br>
                 <center><h3>Price Scanner</h3></center>
                 <form style="width: 100%; text-align: center;">
-                    <input type="button" value="Scan Barcode" id="openScanner" style="font-size: 30px; width: 300px; height: 40px; margin-top: 50px;"/>
-                    <input type="button" value="Add Item" id="addItem" style="font-size: 30px; width: 300px; height: 40px; margin-top: 20px;"/>
-                    <input type="button" value="Edit Item Price" id="editItem" style="font-size: 30px; width: 300px; height: 40px; margin-top: 20px;"/>
+                    <input class="btn btn-info" type="button" value="Scan Price" id="openScanner" style="width: 60%; margin-top: 15px; font-size: 20px;"/>
+                    <input class="btn btn-primary" type="button" value="Add Item" id="addItem" style="width: 60%; margin-top: 15px"/>
+                    <input class="btn btn-primary" type="button" value="Edit Item Price" id="editItem"style="width: 60%; margin-top: 15px"/>
                 </form>
-                <h3 id="item-code"></h3>
-                <h2 id="item-name"></h2>
-                <h2 id="item-price"></h2>
+                <div style="margin-left: 20px; margin-top: 40px;">
+                    <h5 id="item-code"></h5>
+                    <h5 id="item-name"></h5>
+                    <h5 id="item-price"></h5>
+                </div>
             </div>
         </div>
         

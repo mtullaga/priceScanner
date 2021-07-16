@@ -26,7 +26,8 @@
       "cordova-plugin-whitelist": {},
       "cordova-plugin-barcodescanner": {},
       "cordova-plugin-dialogs": {},
-      "cordova-plugin-network-information": {}
+      "cordova-plugin-network-information": {},
+      "cordova-open-native-settings": {}
     },
     "platforms": [
       "browser"

@@ -1,6 +1,41 @@
 
 document.addEventListener('deviceready', onDeviceReady, false);
 document.addEventListener("backbutton", onBackButton, false);
+document.addEventListener("offline", onDeviceOffile, false);
+
+function onDeviceOffile(){
+    navigator.notification.confirm("Pre!, offline man ka. E on imung wifi please.", 
+                                confirmCallback,
+                                'Wifi', 
+                                ['Ok', 'Cancel'])
+    function confirmCallback(index){
+        if(index == 1){
+            cordova.plugins.settings.open(setting_constant, wifiSettingSuccess, wifiSettingFail);
+        }else{
+            
+        }
+    }
+
+    function wifiSettingFail(){
+        alert("Sorry, unable to open your settings.")
+    }
+    function wifiSettingSuccess(){
+        if (window.cordova && window.cordova.plugins.settings) {
+            console.log('openNativeSettingsTest is active');
+            window.cordova.plugins.settings.open("wifi", function() {
+                    console.log('opened settings');
+                },
+                function () {
+                    console.log('failed to open settings');
+                }
+            );
+        } else {
+            console.log('openNativeSettingsTest is not active!');
+        }
+    }
+
+    
+}
 
 function onBackButton(){
     navigator.notification.confirm("You want to exit app?", 

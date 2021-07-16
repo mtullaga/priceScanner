@@ -25,8 +25,6 @@
     "plugins": {
       "cordova-plugin-whitelist": {},
       "cordova-plugin-barcodescanner": {},
-      "cordova-gmv-barcode-scanner": {},
-      "cordova-plugin-fast-barcode-scanner": {},
       "cordova-plugin-dialogs": {},
       "cordova-plugin-network-information": {}
     },

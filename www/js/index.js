@@ -137,6 +137,10 @@ function onDeviceReady() {
     // Add Item section
     $('#addItem').click(function (){
 
+        $('#item-code').empty();
+        $('#item-name').empty();
+        $('#item-price').empty();
+
         if(checkConnection() == 'No network connection') {
             navigator.notification.alert('Please connect to the internet. Palihug!')
         }else{
@@ -206,6 +210,10 @@ function onDeviceReady() {
 
 // Edit Item section
     $('#editItem').click(function (){
+        $('#item-code').empty();
+        $('#item-name').empty();
+        $('#item-price').empty();
+
         if(checkConnection() == 'No network connection') {
             navigator.notification.alert('Please connect to the internet. Palihug!')
         }else{
@@ -220,7 +228,7 @@ function onDeviceReady() {
                                 alert('Item not exist please register the item.')
                             }else{
                                 querySnapshot.forEach((doc) => {
-                                    updatePrice(doc.id)
+                                    updatePrice(doc.id, doc.data().itemPrice)
                                 });
                             }
                             
@@ -235,7 +243,7 @@ function onDeviceReady() {
                 },scannerConfig);
         }
 
-        function updatePrice(id){
+        function updatePrice(id, price){
             function onPrompt(results) {
                             
                 if(results.buttonIndex == 1){
@@ -260,7 +268,7 @@ function onDeviceReady() {
                 onPrompt,                  // callback to invoke
                 'Edit Price',            // title
                 ['Ok','Cancel'],             // buttonLabels
-                '0'                 // defaultText
+                price                 // defaultText
             );
         }
     })
